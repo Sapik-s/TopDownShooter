@@ -32,7 +32,7 @@ public class PatrolBehaviour : StateMachineBehaviour
     {
         if( _agent.remainingDistance <= _agent.stoppingDistance )
         {
-            _agent.SetDestination(_points[Random.Range(0, _points.Count)].position);
+            _agent.SetDestination(_points[Random.Range(0, _points.Count)].forward);
         }
         _timer += Time.deltaTime;
         if (_timer > 10) { animator.SetBool("isPatrolling", false); }
@@ -45,7 +45,8 @@ public class PatrolBehaviour : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _agent.SetDestination(_agent.transform.position);
+        if ( _agent == null )
+            _agent.SetDestination(_agent.transform.position);
     }
 
 }

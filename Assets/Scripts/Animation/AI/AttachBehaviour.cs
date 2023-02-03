@@ -13,10 +13,8 @@ public class AttachBehaviour : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.transform.LookAt(_player);
         float distance = Vector3.Distance(animator.transform.position, _player.position);
-
-        if (distance > 3 ) { animator.SetBool("isAttaching", false); }
+        if (distance > 2 ) { animator.SetBool("isAttaching", false); }
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

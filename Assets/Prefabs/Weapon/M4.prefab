@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fireRate: 0.1
   _clipSize: 30
-  _reservedAmmoCapacity: 60
+  _reservedAmmoCapacity: 240
   _muzzleFlash: {fileID: 4221782807205892374}
   _bullet: {fileID: 4276990615365484338, guid: f8eca2ac9680bfd428f66a6eb495558b, type: 3}
   _pointSpawnBullet: {fileID: 8032518566625030560}

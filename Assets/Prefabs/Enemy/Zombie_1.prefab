@@ -1723,9 +1723,11 @@ GameObject:
   - component: {fileID: 7389507112651452681}
   - component: {fileID: 4588794760760601616}
   - component: {fileID: 6452713483227021332}
+  - component: {fileID: 282083778578844380}
+  - component: {fileID: 414033205123868321}
   m_Layer: 0
   m_Name: Zombie_1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1790,10 +1792,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 0.5
+  m_Acceleration: 20
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 360
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -1801,7 +1803,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!136 &6452713483227021332
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1816,6 +1818,43 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &282083778578844380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493914613880827488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5508f62e82034418a7ed0256a5958c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &414033205123868321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4493914613880827488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe63dafc2cdba445aeb4d9f0bdda80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _setMaxHealth: 100
+  _setHealthRegen: 0
+  _animation:
+  - {fileID: 7400000, guid: 812aae90a9297f249908057eed4c0879, type: 2}
+  - {fileID: 7400000, guid: e44a892308e84194f9f7a5817a6285d7, type: 2}
+  _setBloodSpot:
+  - {fileID: 100000, guid: 358b75ea5451cf143ab19029a189097d, type: 3}
+  - {fileID: 100000, guid: cfc7596704bbd7f489156fcd4c05c7e9, type: 3}
+  - {fileID: 100000, guid: 18a11fd6df8ceb449b8785301026d639, type: 3}
+  - {fileID: 100000, guid: 6fe4d785744af2c40a2157f5b209d97f, type: 3}
+  - {fileID: 100000, guid: aec54d7a991d7b644b145d550a4b7831, type: 3}
+  - {fileID: 100000, guid: 14987c031123b98408a165a8bf1288d4, type: 3}
+  - {fileID: 100000, guid: 43dd1ba2a5dde844eb01240da13ab96b, type: 3}
 --- !u!1 &4710940672626480558
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed = 10f;
+    [SerializeField] private float _setDamage = 30f;
 
     private Vector3 _startPosition;
     private RaycastHit _hit;
@@ -13,9 +14,13 @@ public class Bullet : MonoBehaviour
     private float _timeLife = 3f;
     private float _time = 0f;
 
+    private float _damage;
+
+
     private void InitValue()
     {
         _startPosition = transform.position;
+        _damage = _setDamage;
     }
 
     private void Start()
@@ -35,6 +40,7 @@ public class Bullet : MonoBehaviour
 
         if (Physics.Linecast(_startPosition, transform.position, out _hit))
         {
+            Damage();
             Destroy(gameObject);
         }
 
@@ -45,5 +51,12 @@ public class Bullet : MonoBehaviour
     {
         _time += Time.deltaTime;
         if (_time > _timeLife) { Destroy(gameObject); }
+    }
+
+    private void Damage()
+    {
+        if (_hit.collider.gameObject.tag == "Enemy") {
+            _hit.collider.GetComponent<HealthSystem>().TakeDamage(_damage);
+        }
     }
 }

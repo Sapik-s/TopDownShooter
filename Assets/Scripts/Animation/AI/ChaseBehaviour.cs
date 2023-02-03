@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class ChaseBehaviour : StateMachineBehaviour
-{
+{ 
     private NavMeshAgent _agent;
     private Transform _player;
     private float _attachRange = 2;
@@ -13,7 +13,7 @@ public class ChaseBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _agent = animator.GetComponent<NavMeshAgent>();
-        _agent.speed = 4;
+        _agent.speed = 2;
 
         _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -23,7 +23,11 @@ public class ChaseBehaviour : StateMachineBehaviour
         _agent.SetDestination(_player.position);
         float distance = Vector3.Distance(animator.transform.position, _player.transform.position);
 
-        if (distance < _attachRange) { animator.SetBool("isAttaching", true); }
+        if (distance < _attachRange) { 
+            animator.SetBool("isAttaching", true);
+            animator.GetComponent<AIController>().lookAt = true;
+
+        } else { animator.GetComponent<AIController>().lookAt = false; }
 
         if (distance > _chaseRange) { animator.SetBool("isChasing", false); }
     }
